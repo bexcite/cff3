@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://webservice.cff3.jevera.com/" xmlns:tns="http://webservice.cff3.jevera.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="forecast" type="tns:forecast"/>
+
+  <xs:element name="forecastResponse" type="tns:forecastResponse"/>
+
+  <xs:complexType name="forecast">
+    <xs:sequence>
+      <xs:element name="request" type="tns:forecastRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="forecastRequest">
+    <xs:sequence>
+      <xs:element name="publicFactors" type="tns:publicFactorSet" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="publicFactorSet">
+    <xs:sequence>
+      <xs:element name="factors" type="tns:publicFactor" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="publicFactor">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="name" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="forecastResponse">
+    <xs:sequence>
+      <xs:element name="result" type="tns:forecastResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="forecastResult">
+    <xs:complexContent>
+      <xs:extension base="tns:generalResult">
+        <xs:sequence>
+          <xs:element name="consumption" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="generalResult">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="result" type="tns:resultCode" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="resultCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCCESS"/>
+      <xs:enumeration value="ERROR"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
