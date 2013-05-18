@@ -26,7 +26,7 @@ num_iters = 400;
 
 % Init Theta and Run Gradient Descent 
 theta = zeros(3, 1);
-[theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters);
+[theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters);
 
 fprintf('Theta computed from gradient descent: \n');
 fprintf(' %f \n', theta);
