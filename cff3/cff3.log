@@ -1,4 +1,0 @@
-2013-05-18 14:57:48,184 [Thread-6] DEBUG endpoint.ServerImpl  - unregister the server to serverRegistry 
-2013-05-18 14:57:48,184 [Thread-6] DEBUG endpoint.ServerImpl  - Server is stopping.
-2013-05-18 14:57:48,184 [Thread-6] DEBUG servlet.ServletDestination  - unregistering incoming observer: org.apache.cxf.transport.ChainInitiationObserver@44428a89
-2013-05-18 14:57:48,184 [Thread-6] DEBUG endpoint.ServerImpl  - unregister the server to serverRegistry 
